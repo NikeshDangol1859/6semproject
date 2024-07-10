@@ -27,7 +27,7 @@ function Registration(props) {
   }
   let getEditData = () => {
     if (props.getedit != "") {
-      axios.get("http://localhost:3031/user/" + props.getedit)
+      axios.get("http://localhost:3000/user/" + props.getedit)
         .then((res) => setinpData(res.data))
         .catch((err) => console.log(err.message))
     }

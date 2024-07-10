@@ -41,7 +41,7 @@ function Login() {
         }  
   return (
     <>
-    <div className="container-expand-lg text-center bg-body-tertiary">
+    <div className="container text-center bg-body-tertiary">
         
             <p className='fs-3'>Shopping
             </p>

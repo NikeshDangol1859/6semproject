@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Slidder from '../Slidder';
+import { Link } from 'react-router-dom';
+import SideCategory from './SideCategory';
 
 function Home() {
     const [apiData, setApiData] = useState([]);
@@ -7,7 +9,7 @@ function Home() {
 
     useEffect(() => {
         // Fetching product data
-        fetch('https://fakestoreapi.com/products')
+        fetch('http://localhost:3000/ProductItems')
             .then(res => res.json())
             .then(data => {
                 setApiData(data);
@@ -18,23 +20,39 @@ function Home() {
     <>
     <Slidder/>
     <div className="container">
-                <h1 className='container-expand-lg text-center bg-warning my-2'>Products</h1>
+        <div className="row">
+            <div className="col-md-2">
+                <SideCategory/>
+
+
+            </div>
+            <div className="col-md-10">
+
+            <div className="container">
+                <h1 className='container text-center bg-warning my-2'>Products</h1>
                 <div className="row">
+                
                     {apiData.map(product => (
-                        <div className="col-md-3 d-flex my-3">
-                        <div className="row">
+                        
+                        <div className="col-md-4 d-flex my-3">
+                        <div className="row" key={product.id}>
                         <div className="card" style={{ width: '18rem' }}>
                         
                             <div key={product.id}>
-                                <img src={product.image} className="card-img-top" alt={product.title} />
+                                
                                 <div className="card-body">
-                                    <p>Name: {product.title}</p>
+                                <Link to={`ProductDetails/${product.id}`}>
+                                <img style={{width:"100%",height:"100%"}} src={product.image} className="card-img-top" alt={product.title} />
+                                {console.log(product.image)}
+                                    <p><b className='fs-2 text-center'> {product.title} </b></p>
                                     <p>Description: {product.description}</p>
-                                    <p>Price: $ {product.price}</p>
+                                    <p>Price: <b>Rs.</b> {product.price}</p>
+                                    </Link>
                                     <div>
                                         <button type="button" className="btn btn-outline-primary">Buy Now</button>
-                                        <button type="button" className="btn btn-danger m-1">Cancel</button>
+                                        <button type="button" className="btn btn-warning m-1"> Add To Cart</button>
                                     </div>
+                                    
 
                                 </div>
                                 
@@ -44,9 +62,14 @@ function Home() {
                         </div>
                         </div>
                     </div>
+                    
                     ))}
+                    
                 </div>
             </div>
+            </div>
+        </div>
+    </div>
 
     
       

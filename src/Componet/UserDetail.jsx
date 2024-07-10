@@ -14,7 +14,7 @@ function UserDetail() {
 
     },[title])  
     let getalluser= () =>{
-      axios.get("http://localhost:3031/user")
+      axios.get("http://localhost:3000/user")
       .then(response => setTitle(response.data))
 
     }  
@@ -22,8 +22,8 @@ function UserDetail() {
 
     let handleDelete = (id)=>{
       // alert(id)
-      axios.delete(`http://localhost:3031/user/${id}`)
-      // axios.delete('http://localhost:3031/user'+ id, input_data)
+      axios.delete(`http://localhost:3000/user/${id}`)
+      // axios.delete('http://localhost:3000/user'+ id, input_data)
     }
           
     
