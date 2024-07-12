@@ -1,78 +1,83 @@
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import Registration from './Registration'
-import { useNavigate } from 'react-router-dom'
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import '../style/RegStyle.css'
+import Shopping from './Shopping'
 
 function Login() {
-  let [title, setTitle] = useState([])
-  let [showAddMod,setAddMod] = useState(false)
-  let [showEditMod,setEditMod] = useState("")
-  let [user_id, setuser_id]=useState()
-  let [password, setpassword]=useState()
-  let [userdata,setuserdata] = useState([])
-  let usenavigate =useNavigate()
-    useEffect(()=>{
-      sessionStorage.clear()
-            
-    
-        },[])  
-        let getalluser= () =>{
-          axios.get("http://localhost:3000/user")
-          .then(response => setTitle(response.data))
-    
-        }
-        let handlesummit = (e)=>{
+  let [user_id, setUser_id] = useState('')
+  let [password, setPassword] = useState('')
+  let [userdata, setUserdata] = useState([])
+  let [showPassword, setShowPassword] = useState(false)
+  let usenavigate = useNavigate()
 
-    
-          axios.get("http://localhost:3000/user")
-          .then((res)=>setuserdata(res.data))
-          .catch((err)=>console.log(err.message))
-      
-          let getdata = userdata.find((ud)=>ud.email==user_id && ud.password==password)    
+  let handleSubmit = (e) => {
+    e.preventDefault()
+    axios.get("http://localhost:3000/user")
+      .then((res) => {
+        setUserdata(res.data)
+        let getdata = res.data.find((ud) => ud.email === user_id && ud.password === password)
+        if (getdata) {
+          toast.success("Successfully Logged In")
+          sessionStorage.setItem('id', getdata.id)
           
-          if(Object.keys(getdata).length>=0){
-            let getid= sessionStorage.setItem('id',getdata.id)
-      
-            usenavigate('/')
-          }
-        
-          
-          
-        }  
+          usenavigate('/')
+        } else {
+          toast.error("Invalid User")
+        }
+      })
+      .catch((err) => console.log(err.message))
+  }
+
   return (
     <>
-    <div className="container text-center bg-body-tertiary">
-        
-            <p className='fs-3'>Shopping
-            </p>
-            <p>Greate Shopping comes with Greate Website</p>
-        
-    </div>
-    <hr></hr>
-    <hr></hr>
-    <div className="container w-50 bg-warning mt-3 p-3 rounded mb-4">
-   
-  <div className="mb-3">
-    <label htmlFor="exampleInputText" className="form-label" > <i className="fa-solid fa-user" /> UserName</label>
-    <input type="text" className="form-control" id="login" onChange={(e)=>setuser_id(e.target.value)}  />    
-  </div>
-  <div className="mb-3">
-    <label htmlFor="exampleInputPassword1" className="form-label"><i className="fa-solid fa-key" /> Password</label>
-    <input type="password" className="form-control" id="passowrd" onChange={(e)=>setpassword(e.target.value)} />
-  </div>
-  
-  <div className="floating">
-  <button  className="btn btn-primary" onClick={()=>handlesummit()}>Login</button>
-  <p>Don't have Account? <button className="btn btn-primary" onClick={()=>{setAddMod(true)}} >Register</button> here</p>
-  </div>
-   </div>
+      <ToastContainer />
 
-   <Registration 
-        getedit = {showEditMod}
-        showmodal={showAddMod} 
-        getadduser={()=>{setAddMod(false); getalluser()}}
-        />
-      
+      <Shopping/>
+
+      <div className="Cointainer">
+        <h1>Login</h1>
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <i className="fa-solid fa-user" />
+            <input 
+              type="text" 
+              placeholder="UserName" 
+              className="Same" 
+              id="login" 
+              onChange={(e) => setUser_id(e.target.value)} 
+            />
+          </div>
+
+          <div className="form-group position-relative">
+            <i className="fa-solid fa-key" />
+            <input 
+              type={showPassword ? "text" : "password"} 
+              placeholder='Password' 
+              className="Same" 
+              id="password" 
+              onChange={(e) => setPassword(e.target.value)} 
+            />
+            <i 
+              className={`fa-solid ${showPassword ? 'fa-eye-slash' : 'fa-eye'} password-toggle`} 
+              onClick={() => setShowPassword(!showPassword)} 
+            />
+          </div>
+
+          <div className="form-group">
+            <h5>Forget Password? Click <Link className='nav-item' to='/ForgetPass'>Here</Link></h5>
+          </div>
+
+          <button type="submit" className="Lbutton">Login</button>
+          <div className="form-group">
+            <h5>
+              Already have an account? <Link className="nav-item" to="/registration"> Register here</Link>
+            </h5>
+          </div>
+        </form>
+      </div>
     </>
   )
 }

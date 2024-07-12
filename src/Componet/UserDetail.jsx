@@ -30,10 +30,10 @@ function UserDetail() {
        
   return (
     <>
-    <Registration 
+    <Registration
         getedit = {showEditMod}
         showmodal={showAddMod} 
-        getadduser={()=>{setAddMod(false); getalluser()}}
+        getadduser={()=>{getalluser()}}
         />
    
       

@@ -1,10 +1,10 @@
 {
   "user": [
     {
-      "id": 1,
-      "name": "John Doe",
-      "email": "john.doe@example.com",
-      "password": "123456",
+      "id": "1",
+      "name": "Nikesh Dangol",
+      "email": "nikesh@gmail.com",
+      "password": "123",
       "address": "lele",
       "age": 21
     },
@@ -15,51 +15,107 @@
       "password": "123",
       "address": "lele",
       "age": "21"
+    },
+    {
+      "id": "eaea",
+      "name": "nikesh dangol",
+      "email": "nikeshdangol126@gmail.com",
+      "password": "123",
+      "address": "lele",
+      "age": "21",
+      "gender": "Male"
+    },
+    {
+      "id": "7247",
+      "name": "nikesh dangol",
+      "email": "nikeshdangol126@gmail.com",
+      "password": "123",
+      "address": "lele",
+      "age": "21",
+      "gender": "Male"
+    },
+    {
+      "id": "8747",
+      "name": "nikesh dangol",
+      "email": "nikeshdangol126@gmail.com",
+      "password": "123",
+      "address": "lele",
+      "age": "21",
+      "gender": "Male"
+    },
+    {
+      "id": "33d7",
+      "name": "nikesh dangol",
+      "email": "nikeshdangol126@gmail.com",
+      "password": "123",
+      "address": "lele",
+      "age": "21",
+      "gender": "Male"
+    },
+    {
+      "id": "ed05",
+      "name": "nikesh dangol",
+      "email": "nikeshdangol126@gmail.com",
+      "password": "123",
+      "address": "lele",
+      "age": "21",
+      "gender": "Male"
     }
   ],
-  "ProductItems":[
+  "ProductItems": [
     {
-      "id": 1,
-      "title": "Product 1",
+      "id": "1",
+      "title": "Lenovo",
       "price": 100,
       "description": "Product 1 description",
+      "category": "Category 1",
+      "fulldescription": "Lenovo Yoga Slim 7 Intel Core Ultra 7 155H Built-in AI 14'(35.5cm) WUXGA-OLED 400Nits Laptop (32GB/1TB SSD/100% DCI-P3/FHD+IR Camera/Win11/Office 21/Alexa/3 Month Game Pass/Grey/1.39Kg), 83CV002DIN",
       "image": "laptop1.jpg"
-      },
-      {
-        "id": 2,
-        "title": "Product 2",
-        "price": 200,
-        "description": "Product 2 description",
-        "image": "mobile1.jpg"
-        },
-        {
-          "id": 3,
-          "title": "Product 2",
-          "price": 200,
-          "description": "Product 2 description",
-          "image": "mobile1.jpg"
-          },
-          {
-            "id": 4,
-            "title": "Product 2",
-            "price": 200,
-            "description": "Product 2 description",
-            "image": "mobile1.jpg"
-            },
-            {
-              "id": 5,
-              "title": "Product 2",
-              "price": 200,
-              "description": "Product 2 description",
-              "image": "mobile1.jpg"
-              },
-              {
-                "id": 6,
-                "title": "Product 2",
-                "price": 200,
-                "description": "Product 2 description",
-                "image": "mobile1.jpg"
-                }
-
+    },
+    {
+      "id": "2",
+      "title": "Product 2",
+      "price": 200,
+      "description": "Product 2 description",
+      "category": "Category 2",
+      "fulldescription": "Lenovo Yoga Slim 7 Intel Core Ultra 7 155H Built-in AI 14'(35.5cm) WUXGA-OLED 400Nits Laptop (32GB/1TB SSD/100% DCI-P3/FHD+IR Camera/Win11/Office 21/Alexa/3 Month Game Pass/Grey/1.39Kg), 83CV002DIN",
+      "image": "mobile1.jpg"
+    },
+    {
+      "id": "3",
+      "title": "Product 2",
+      "price": 200,
+      "description": "Product 2 description",
+      "category": "Category 2",
+      "fulldescription": "Lenovo Yoga Slim 7 Intel Core Ultra 7 155H Built-in AI 14'(35.5cm) WUXGA-OLED 400Nits Laptop (32GB/1TB SSD/100% DCI-P3/FHD+IR Camera/Win11/Office 21/Alexa/3 Month Game Pass/Grey/1.39Kg), 83CV002DIN",
+      "image": "mobile1.jpg"
+    },
+    {
+      "id": "4",
+      "title": "Product 2",
+      "price": 200,
+      "description": "Product 2 description",
+      "category": "Category 2",
+      "fulldescription": "Lenovo Yoga Slim 7 Intel Core Ultra 7 155H Built-in AI 14'(35.5cm) WUXGA-OLED 400Nits Laptop (32GB/1TB SSD/100% DCI-P3/FHD+IR Camera/Win11/Office 21/Alexa/3 Month Game Pass/Grey/1.39Kg), 83CV002DIN",
+      "image": "mobile1.jpg"
+    },
+    {
+      "id": "5",
+      "title": "Product 2",
+      "price": 200,
+      "description": "Product 2 description",
+      "category": "Category 2",
+      "fulldescription": "Lenovo Yoga Slim 7 Intel Core Ultra 7 155H Built-in AI 14'(35.5cm) WUXGA-OLED 400Nits Laptop (32GB/1TB SSD/100% DCI-P3/FHD+IR Camera/Win11/Office 21/Alexa/3 Month Game Pass/Grey/1.39Kg), 83CV002DIN",
+      "image": "mobile1.jpg"
+    },
+    {
+      "id": "6",
+      "title": "Product 2",
+      "price": 200,
+      "description": "Product 2 description",
+      "category": "Category 2",
+      "fulldescription": "Lenovo Yoga Slim 7 Intel Core Ultra 7 155H Built-in AI 14'(35.5cm) WUXGA-OLED 400Nits Laptop (32GB/1TB SSD/100% DCI-P3/FHD+IR Camera/Win11/Office 21/Alexa/3 Month Game Pass/Grey/1.39Kg), 83CV002DIN",
+      "image": "mobile1.jpg"
+    }
   ]
 }

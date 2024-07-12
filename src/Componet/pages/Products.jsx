@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import Slidder from '../Slidder';
-import { Link } from 'react-router-dom';
 import SideCategory from './SideCategory';
+import { Link } from 'react-router-dom';
+import Shopping from '../Shopping';
 
-function Home() {
+function Products() {
     const [apiData, setApiData] = useState([]);
 
 
@@ -18,7 +18,8 @@ function Home() {
     }, []);
   return (
     <>
-    <Slidder/>
+    <Shopping/>
+    
     <div className="container">
         <div className="row">
             <div className="col-md-3">
@@ -76,4 +77,4 @@ function Home() {
   )
 }
 
-export default Home
+export default Products
