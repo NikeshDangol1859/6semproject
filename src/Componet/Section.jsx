@@ -6,6 +6,7 @@ import AdminApp from '../Admin/AdminApp'
 import ProductDetails from './pages/ProductDetails'
 import Products from './pages/Products'
 import Registration from './Registration'
+import Contact from './pages/Contact'
 
 function Section() {
   return (
@@ -17,8 +18,10 @@ function Section() {
             <Route path="/Products" element={<Products/>}/>
             <Route path="/registration" element={<Registration/>}/>
             <Route path="/login" element={<Login/>}/>
+            <Route path="/Contact" element={<Contact/>}/>
             <Route path="/ProductDetails/:pro_id" element={<ProductDetails/>}/>
             <Route path="Products/ProductDetails/:pro_id" element={<ProductDetails/>}/>
+
             
             {/* <Route path="/*" element={<Pagenotfound/>}/> */}
         </Routes>

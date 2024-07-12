@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 
 function Nav() {
   let [search, setsearch] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // State variable to track login status
   const location = useLocation();
 
   return (
@@ -22,9 +23,9 @@ function Nav() {
                 <Link className="nav-link" aria-current="page" to="/Products">Product</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="#">Contact</a>
+                <Link className="nav-link" aria-current="page" to="/Contact">Contact</Link>
               </li>
-              {location.pathname !== '/registration' && location.pathname !== '/login' &&  (
+              {location.pathname !== '/registration' && location.pathname !== '/login' && isLoggedIn && (
                 <>
                   <li className="nav-item">
                     <a className="nav-link" aria-current="page" href="#">Cart <i className="fa-solid fa-cart-shopping"> <sup>0</sup></i> </a>
@@ -32,10 +33,12 @@ function Nav() {
                   <li className="nav-item">
                     <a className="nav-link" aria-current="page" href="#">Total Price</a>
                   </li>
-                  <li className="nav-item">
-                    <Link className="nav-link fw-bolder" aria-current="page" to="/registration">Register <i className="fa-regular fa-registered" /></Link>
-                  </li>
                 </>
+              )}
+              {location.pathname !== '/registration' && (
+                <li className="nav-item">
+                  <Link className="nav-link fw-bolder" aria-current="page" to="/registration">Register <i className="fa-regular fa-registered" /></Link>
+                </li>
               )}
             </ul>
             {location.pathname !== '/registration' && (

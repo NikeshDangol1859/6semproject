@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import '../style/RegStyle.css'
 import Shopping from './Shopping'
 
 function Login() {
@@ -19,13 +18,13 @@ function Login() {
       .then((res) => {
         setUserdata(res.data)
         let getdata = res.data.find((ud) => ud.email === user_id && ud.password === password)
+        
         if (getdata) {
-          toast.success("Successfully Logged In")
           sessionStorage.setItem('id', getdata.id)
-          
+          toast.success("Successfully Logged In")
           usenavigate('/')
         } else {
-          toast.error("Invalid User")
+          toast.error("Invalid UserName or Password")
         }
       })
       .catch((err) => console.log(err.message))
