@@ -94,7 +94,7 @@ function Registration(props) {
               type="text"
               name="name"
               placeholder="Name"
-              className="Name"
+              className="Same"
               value={input_data.name}
               onChange={setData}
             />

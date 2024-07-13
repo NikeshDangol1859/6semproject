@@ -27,14 +27,19 @@ export const SearchProvider = ({ children }) => {
     const [products, setProducts] = useState([]);
 
     const searchProduct = (target) => {
-        // Ensure the products are sorted by title
         const sortedProducts = [...products].sort((a, b) => a.title.localeCompare(b.title));
         const index = binarySearch(sortedProducts, target);
         return index !== -1 ? sortedProducts[index] : null;
     };
 
+    const recommendProducts = (product) => {
+        if (!product) return [];
+        // Simple recommendation based on category
+        return products.filter(p => p.category === product.category && p.id !== product.id);
+    };
+
     return (
-        <SearchContext.Provider value={{ search, setSearch, products, setProducts, searchProduct }}>
+        <SearchContext.Provider value={{ search, setSearch, products, setProducts, searchProduct, recommendProducts }}>
             {children}
         </SearchContext.Provider>
     );

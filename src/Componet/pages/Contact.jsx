@@ -1,12 +1,10 @@
 import React from 'react'
+import Shopping from '../Shopping'
 
 function Contact() {
   return (
     <>
-    <div className="bg-danger">
-            <h2 className="text-center text-white"> Shopping</h2>
-            <p className="text-center text-white"> Greate Shopping comes with Greate Website</p>
-        </div>
+    <Shopping/>
     <div className="Cont">
         
         <div className="Crow">
@@ -17,7 +15,7 @@ function Contact() {
                 </li>
                 <div className='bg-light'>
                 <p className="text-dark mt-3">
-                    <i className="fa-solid fa-phone mt-3" /> 98********
+                    <i className="fa-solid fa-phone mt-3" /> 9812345678
                     <br />
                     <i className="fa-solid fa-location-dot mt-3" /> Chapagaun,Lalitpur
                     <br />

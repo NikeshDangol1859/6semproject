@@ -5,7 +5,7 @@ function Shopping() {
     <>
     <div className="container-expand-lg text-center bg-body-tertiary">
         
-        <p className='fs-1 fw-bold'>Shopping
+        <p className='fs-1 fw-bold'>E-Shopping
         </p>
         <p>Greate Shopping comes with Greate Website</p>
     

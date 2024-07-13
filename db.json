@@ -60,6 +60,15 @@
       "address": "lele",
       "age": "21",
       "gender": "Male"
+    },
+    {
+      "id": "cdd2",
+      "name": "nikesh dangol",
+      "email": "nikeshdangol126@gmail.com",
+      "password": "123",
+      "address": "lele",
+      "age": "21",
+      "gender": "Male"
     }
   ],
   "ProductItems": [
