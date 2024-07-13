@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { SearchContext } from './pages/SearchContext';
 
-function Nav() {
-  let [search, setsearch] = useState("");
+function Nav(props) {
+  // let [search, setsearch] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false); // State variable to track login status
   const location = useLocation();
+  
+  const { setSearch } = useContext(SearchContext);
+
+    const handleSearch = (e) => {
+        setSearch(e.target.value);
+    };
 
   return (
     <>
@@ -43,8 +50,8 @@ function Nav() {
             </ul>
             {location.pathname !== '/registration' && (
               <form className="d-flex" role="search">
-                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" onChange={(e) => setsearch(e.target.value)} />
-                <button className="btn btn-outline-success" type="submit">Search</button>
+                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" onChange={handleSearch} />
+                {/* <button className="btn btn-outline-success" type="submit" >Search</button> */}
               </form>
             )}
           </div>

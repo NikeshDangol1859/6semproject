@@ -1,23 +1,41 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Slidder from '../Slidder';
 import { Link } from 'react-router-dom';
 import SideCategory from './SideCategory';
+import { SearchContext } from './SearchContext';
 
 function Home() {
-    const [apiData, setApiData] = useState([]);
-
+    const { search, setProducts, searchProduct } = useContext(SearchContext);
+    const [filteredProducts, setFilteredProducts] = useState([]);
 
     useEffect(() => {
         // Fetching product data
         fetch('http://localhost:3000/ProductItems')
             .then(res => res.json())
             .then(data => {
-                setApiData(data);
-            })
-            
-    }, []);
+                const sortedData = data.sort((a, b) => a.title.localeCompare(b.title));
+                setProducts(sortedData);
+                setFilteredProducts(sortedData);
+            });
+    }, [setProducts]);
+
+    useEffect(() => {
+        if (search) {
+            const product = searchProduct(search);
+            setFilteredProducts(product ? [product] : []);
+        } else {
+            fetch('http://localhost:3000/ProductItems')
+                .then(res => res.json())
+                .then(data => {
+                    const sortedData = data.sort((a, b) => a.title.localeCompare(b.title));
+                    setFilteredProducts(sortedData);
+                });
+        }
+    }, [search, searchProduct]);
+   
   return (
     <>
+    
     <Slidder/>
     <div className="container">
         <div className="row">
@@ -32,7 +50,7 @@ function Home() {
                 <h1 className='container text-center bg-warning my-2'>Products</h1>
                 <div className="row">
                 
-                    {apiData.map(product => (
+                    {filteredProducts.map((product,index) => (
                         
                         <div className="col-md-4 d-flex my-3">
                         <div className="row" key={product.id}>
@@ -69,6 +87,7 @@ function Home() {
             </div>
         </div>
     </div>
+
 
     
       

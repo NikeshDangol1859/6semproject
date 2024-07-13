@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import SideCategory from './SideCategory';
 import { Link } from 'react-router-dom';
 import Shopping from '../Shopping';
+import { SearchContext } from './SearchContext';
 
 function Products() {
     const [apiData, setApiData] = useState([]);
+    const { search } = useContext(SearchContext);
 
 
     useEffect(() => {
@@ -18,6 +20,7 @@ function Products() {
     }, []);
   return (
     <>
+    
     <Shopping/>
     
     <div className="container">
@@ -33,7 +36,7 @@ function Products() {
                 <h1 className='container text-center bg-warning my-2'>Products</h1>
                 <div className="row">
                 
-                    {apiData.map(product => (
+                    {apiData.filter((item)=>item.title.toLowerCase().includes(search)) .map((product,index) => (
                         
                         <div className="col-md-4 d-flex my-3">
                         <div className="row" key={product.id}>
